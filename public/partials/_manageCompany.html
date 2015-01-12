@@ -1,0 +1,139 @@
+<style>
+
+
+
+table { min-width: 200px; }
+
+tbody div{
+    overflow:scroll;
+    height:100px;
+}
+#style-2::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 1px;
+            background-color: #F5F5F5;
+        }
+
+        #style-2::-webkit-scrollbar
+        {
+            width: 12px;
+            background-color: #989898;
+        }
+
+        #style-2::-webkit-scrollbar-thumb
+        {
+            border-radius: 1px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #989898;
+        }
+
+
+table {
+    border-collapse: collapse;
+    width: 300px;
+    overflow-x: scroll;
+    display: block;
+}
+thead {
+    background-color: #EFEFEF;
+}
+thead, tbody {
+    display: block;
+}
+tbody {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: auto!important;
+}
+td, th {
+    /*min-width: 170px;*/
+    max-width: 170px!important;
+    height: 25px;
+     border: dashed 1px lightblue;
+     font-size: 14px;
+}
+.ng-table {
+    border: 1px solid #000;
+}
+</style>
+
+<!-- <div ng-show="dashboardModel.userTypeId==1" class="pull-right" style="margin-bottom:10px"><a href="#/addCompany"><button type="button" class="btn btn-primary btn-med" ng-click="addComp()">Add Company</button></a></div>
+<h2 class="span10" style="margin-left:0px">Company Dashboard</h2> -->
+<!-- <div class="btn-atrr">
+<div class="add-new"><a href="#/addCompany" ng-click="addComp()" ng-show="dashboardModel.userTypeId==1"><img src="/browser_components/images/bttnAdd.png" alt="img"/></a></div>
+</div>
+
+ --><div style=" width: 100%;overflow: auto;text-align:center" id="style-2" ng-controller="DashboardController">
+        <!-- <img ng-show="dashboardModel.loading" ng-src="/browser_components/images/ajax-loader.gif" alt="img"/> -->
+  <table class="table table-striped">
+    <thead>
+        <th  ng:click="changeSorting('-name')" ng:class="selectedCls('-name')">Name</th>
+        <th  ng:click="changeSorting('-parent_company')" ng:class="selectedCls('-parent_company')">P.Company</th>
+        <th  ng:click="changeSorting('-company_type.name')" ng:class="selectedCls('-company_type.name')">Type</th>
+        <th  ng:click="changeSorting('-classifications[0]')" ng:class="selectedCls('-classifications[0]')">Classification</th>
+        <th  ng:click="changeSorting('-PSL')" ng:class="selectedCls('-PSL')">PSL</th>
+        <th  ng:click="changeSorting('-country.name')" ng:class="selectedCls('-country.name')">Country</th>
+        <th  ng:click="changeSorting('-region.name')" ng:class="selectedCls('-region.name')">Region</th>
+        <th  ng:click="changeSorting('-city.name')" ng:class="selectedCls('-city.name')">HQ City</th>
+        <th  ng:click="changeSorting('-state.name')" ng:class="selectedCls('-state.name')">HQ State</th>
+        <th  ng:click="changeSorting('-companyInvestors[0]')" ng:class="selectedCls('-companyInvestors[0]')">Investors</th>
+        <th  ng:click="changeSorting('-ceo')" ng:class="selectedCls('-ceo')">CEO</th>
+        <th  ng:click="changeSorting('-website')" ng:class="selectedCls('-website')">Website</th>
+        <th  ng:click="changeSorting('-no_of_DCS')" ng:class="selectedCls('-no_of_DCS')">#DCs</th>
+        <th  ng:click="changeSorting('-dcpartner')" ng:class="selectedCls('-dcpartner')">DC Partners</th>
+        <th  ng:click="changeSorting('-dclocation')" ng:class="selectedCls('-dclocation')">DC Locations</th>
+        <th ></th>
+    </thead>
+    <tbody style="height:100px;"id="style-2">
+        
+    <!-- <tr ng-repeat="company in dashboardModel.companies|orderBy:sort.column:sort.descending track by $index"> -->
+    <tr ng-repeat="company in dashboardModel.companies |orderBy:sort.column:sort.descending| pagination : (dashboardModel.currentPage)*(dashboardModel.itemsPerPage) | limitTo: dashboardModel.itemsPerPage track by $index">
+        
+        <td >{{company.name}}</td>
+        <td >{{company.parent_company||'-'}}</td>
+        <td >{{company.company_type.name||'-'}}</td>
+        <td ><span ng-repeat="classification in company.classifications track by $index " bn-repeat-delimiter="<br/>">{{classification.name||'-'}}</span></td>
+        <td >{{company.PSL||'-'}}</td>
+        <td >{{company.country.name||'-'}}</td>
+        <td >{{company.region.name||'-'}}</td>
+        <td >{{company.city.name||'-'}}</td>
+        <td >{{company.state.name||'-'}}</td>
+        <td ><span ng-repeat="investors in company.companyInvestors track by $index">{{investors.investor||'-'}}</span></td>
+        <td >{{company.CEO||'-'}}</td>
+        <td >{{company.website||'-'}}</td>
+        <td >{{company.no_of_DCS||'-'}}</td>
+        <td >{{company.dcpartner||'-'}}</td>
+        <td >{{company.dclocation||'-'}}</td>
+        <td >
+            <a href="" ng-show="dashboardModel.userTypeId==1" ng-click="editCompany(company.id)"><img src="/browser_components/images/buttnEdit.png" alt="img"/></a>&nbsp;&nbsp;
+
+            <a href="" ng-show="dashboardModel.userTypeId==1" ng-click="deleteCompany(company.id)"><img src="/browser_components/images/buttnDelete.png" alt="img"/></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+<div class="pagination-div">
+
+<ul class="pagination">
+      <li ng-class="DisablePrevPage()">
+        <a href ng-click="prevPage()">« Prev</a>
+      </li>
+      <!-- <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+        <a href="" ng-click="setPage(n)" >{{n+1}}</a>
+      </li> -->
+      <li ng-class="DisableNextPage()">
+        <a href ng-click="nextPage()">Next »</a>
+         
+      </li>
+    </ul>
+
+</div>
+<script type="text/javascript">
+$('table').on('scroll', function () {
+    $("table > *").width($("table").width() + $("table").scrollLeft());
+});
+</script>
+
+

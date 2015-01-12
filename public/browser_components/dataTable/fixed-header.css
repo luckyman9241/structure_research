@@ -1,0 +1,32 @@
+.fixed-table-container {
+    position: relative;
+}
+
+.fixed-table-container-inner {
+    overflow-y: auto;
+    height: 85%;
+    width: 135%;
+}
+
+div.fixed-table-container div table thead tr th {
+    padding: 0;
+    border: 0;
+}
+
+.th-inner {
+    position: absolute;
+top: 0;
+display: inline-block;
+text-align: left;
+background-color: #fff;
+width:inherit;
+}
+
+.hidden-header .th-inner {
+    position: static;
+    overflow-y: hidden;
+    height: 0;
+}
+.table{
+    margin-bottom:0px!important;
+}

@@ -1,0 +1,407 @@
+
+@import url("fonts/fonts.css");
+
+body {
+    font-family: 'Arial';
+    background:#DADCD4;
+    color:#323232;
+    height:auto;
+}
+.col-lg-2-5{
+    width: 19.666667%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#header .admin-area{
+    padding:18px;
+    float:right;
+}
+#header .header-content{
+    padding:20px
+}
+.logo img{
+    width:320px;
+}
+
+.no-js{
+    display: none;
+}
+/*Widgets*/
+.widgets{
+    background-color:#EBEBEB;
+    padding: 20px 20px 0px 20px;
+    display: inline-block;
+    width: 100%;
+    border-bottom:2px solid #ccc;
+}
+.dashboard-stat.blue {
+    background-color: #363636;
+    margin-bottom:20px;
+}
+.dashboard-stat.blue .more{
+    background-color:#363636;
+}
+.dashboard-stat:before,
+.dashboard-stat:after {
+    display: table;
+    line-height: 0;
+    content: ""
+}
+.dashboard-stat:after {
+    clear: both
+}
+.dashboard-stat .visual {
+    width: 80px;
+    height: 80px;
+    display: block;
+    float: left;
+    padding-top: 10px;
+    padding-left: 1px
+}
+.dashboard-stat .visual img {
+    margin-left: 10px;
+}
+.dashboard-stat .details {
+    float: right;
+    padding-right: 10px
+}
+.dashboard-stat .details .number {
+    padding-top: 5px;
+    text-align: right;
+    font-size: 34px;
+    letter-spacing: -1px;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.dashboard-stat .details .desc {
+    text-align: right;
+    font-size: 15px;
+    letter-spacing: 0px;
+    font-weight: 300;
+    color: #fff;
+}
+.dashboard-stat .more {
+    clear: both;
+    display: block;
+    padding: 5px 10px 5px 10px;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 11px;
+    color: #fff;
+    opacity: 0.7;
+    filter: alpha(opacity = 70)
+}
+.dashboard-stat .more i {
+    float: right
+}
+.tag{
+    display: inline-block;
+    padding: 3px 7px;
+    background-color: #FCF6D6;
+    font-size: 11px;
+    line-height: 16px;
+    color: #968836;
+    border: 1px solid #DBCD74;
+}
+
+.post-top{
+    border-bottom: 1px solid #E0E0E0;
+    border-top: 1px solid #E0E0E0;
+    padding: 15px 0px;
+    margin-bottom: 30px;
+    font-size: 12px;
+    font-weight: 300;
+    color: #3C5B68;
+}
+.below-widget-content{
+    /*background-color: #fff;*/
+    display: inline-block;
+    width: 100%;
+    padding: 0px 15px;
+    margin-bottom: 30px;
+}
+.below-widget-content h2{
+    font-weight: bold;
+    font-size: 35px!important;
+    padding: 20px;
+    margin-top: 0px;
+}
+.clear-btn {
+    float:right;
+}
+.below-widget-content .form-control{
+    margin-bottom:20px;
+    background-color: #e1e1e1!important;
+    border-radius: 0px!important;
+    box-shadow: none!important;
+}
+/*range slider */
+.slider-content{
+    margin-top:20px;
+}
+
+.form-control select {
+  background: transparent;
+  width: 168px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  height: 34px;
+  -webkit-appearance: none;
+  color: #000;
+}
+
+input[type=range].vHorizon {
+    -webkit-appearance: none;
+    background-color:#707070;
+    height: 3px;
+    width:100%;
+
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-image: url('../images/thumb.png');
+    background-repeat:no-repeat;
+    width: 22px;
+    height:31px;
+}
+.max-width{
+    float:right;
+}
+.slider-values label{
+    font-size:25px;
+    font-weight:800;
+}
+.slider-content input:focus{
+    outline: 0;
+}
+
+/*tab-content*/
+.tab-content{
+    margin-top:20px;
+}
+#myTab .nav-tabs>li{
+    width:24%
+}
+.nav-tabs>li>a{
+    background: rgb(183,183,183); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(183,183,183,1) 59%, rgba(124,124,124,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(59%,rgba(183,183,183,1)), color-stop(100%,rgba(124,124,124,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(183,183,183,1) 59%,rgba(124,124,124,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(183,183,183,1) 59%,rgba(124,124,124,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(183,183,183,1) 59%,rgba(124,124,124,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(183,183,183,1) 59%,rgba(124,124,124,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7b7b7', endColorstr='#7c7c7c',GradientType=0 ); /* IE6-9 */
+    color:#003366;
+    font-size: 20px;
+    font-weight: bold;
+    border:0px!important;
+    border-radius:0px!important;
+    margin-right: 6px;
+
+
+}
+.nav-tabs>li.active>a, 
+.nav-tabs>li.active>a:hover, 
+.nav-tabs>li.active>a:focus{
+    background:#fff;
+}
+.nav-tabs {
+    background: #DADCD4;
+}
+.btn-atrr{
+    display:inline-block;
+    float:right;
+    padding:30px;
+}
+.add-new{
+    display: inline-block;
+    float:right;
+    margin-left: 15px;
+}
+.switch-button{
+    display:inline-block;
+}
+.btn-percent{
+    position:relative;
+    left:4px;
+}
+.table-button{
+    display:inline-block;
+}
+
+.customSelect select {
+
+  border: 0 !important;  /*Removes border*/
+  -webkit-appearance: none;  /*Removes default chrome and safari style*/
+  -moz-appearance: none; /* Removes Default Firefox style*/
+  /*background: url('../images/arrowDown.png') no-repeat;*/  /*Adds background-image*/
+  background-position: 100% 7px;  /*Position of the background-image*/
+  
+  text-indent: 0.01px; /* Removes default arrow from firefox*/
+  text-overflow: "";  /*Removes default arrow from firefox*/
+
+  /*My custom style for fonts*/
+
+  color: #1455a2;
+}
+
+.upArrow{
+background: url('../images/arrowDown.png') no-repeat!important;
+background-position: 100% 7px!important;
+}
+.downArrow{
+background: url('../images/arrowDown.png') no-repeat!important;
+background-position: 100% 7px!important;
+}
+.customInnerSelect select {
+
+  border: 0 !important;  /*Removes border*/
+  -webkit-appearance: none;  /*Removes default chrome and safari style*/
+  -moz-appearance: none; /* Removes Default Firefox style*/
+  background: url('../images/arrowDown.png') no-repeat;  /*Adds background-image*/
+  background-position: 100% 7px;  /*Position of the background-image*/
+  
+  text-indent: 0.01px; /* Removes default arrow from firefox*/
+  text-overflow: "";  /*Removes default arrow from firefox*/
+
+  /*My custom style for fonts*/
+
+  color: #1455a2;
+}
+
+.paginationclass{
+margin: 15px 28px; 
+ }
+.paginationclass div{
+    border-bottom:1px solid silver;
+    
+}
+.paginationclass span{
+    margin:0px 15px;
+    display:inline-block;
+    padding:5px 0px;
+    text-align:left;
+    width:70px;
+}
+.pagination-controle li{
+    display: inline-block;
+    
+}
+.pagination-controle button{
+    width: 63px;
+    font-size: 12px;
+    margin-left: 13px;
+    cursor:pointer;
+}
+.pagination-div{
+    margin-left:20px;
+    text-align: center;
+}
+/*
+.below-widget-content .customInnerSelect:after {
+content: '';
+position: absolute;
+right: 24px;
+top: -15px;
+background-image: url('../images/arrowDown.png');
+background-repeat: no-repeat;
+background-position: 10px 44px;
+width: 33px;
+height: 69px;
+}
+.below-widget-content .customInnerSelectUp:after {
+content: '';
+position: absolute;
+right: 24px;
+top: -15px;
+background-image: url('../images/arrowUp.png');
+background-repeat: no-repeat;
+background-position: 10px 44px;
+width: 33px;
+height: 69px;
+}
+
+
+
+/*.below-widget-content .customSelect select {
+    position: relative;
+}
+.below-widget-content .customSelect:after {
+content: '';
+position: absolute;
+right: 21px;
+top: -39px;
+background-image: url('../images/arrowDown.png');
+background-repeat: no-repeat;
+background-position: 10px 44px;
+width: 33px;
+height: 69px;
+}*/
+/*.below-widget-content .customSelectUp:after {
+content: '';
+position: absolute;
+right: 21px;
+top: -39px;
+background-image: url('../images/arrowUp.png');
+background-repeat: no-repeat;
+background-position: 10px 44px;
+width: 33px;
+height: 69px;
+}*/
+
+/*
+.header-content .customIndexSelect select {
+    position: relative;
+    background-color: #363636!important;
+    color: #fff;
+}
+.header-content .customIndexSelect:after {
+content: '';
+position: absolute;
+right: 95px;
+top: -1px;
+background-image: url('../images/arrowDown.png');
+background-repeat: no-repeat;
+background-position: 10px 44px;
+width: 33px;
+height: 69px;
+}
+.header-content .customIndexSelectUp:after {
+content: '';
+position: absolute;
+right: 95px;
+top: -1px;
+background-image: url('../images/arrowUp.png');
+background-repeat: no-repeat;
+background-position: 10px 44px;
+
+width: 33px;
+height: 69px;
+}
+*/
+@media(max-width:786px){
+    .logo img{width:50px;}
+    #header .admin-area{padding:5px;}
+    .col-lg-2-5{width:100%!important}
+    .vHorizon{margin-top:20px}
+    .slider-values{margin-top:20px}
+    .nav-tabs>li{width:auto;}
+}
+@media(max-width:991px){
+    .col-lg-2-5{width:50%}
+    .vHorizon{margin-top:20px}
+    .slider-values{margin-top:20px}
+}
+@media (max-width:567px){
+    .nav-tabs>li>a{padding:3px;font-size:12px;margin-right: 2px;}
+}
+@media (max-width:386px){
+    .nav-tabs>li>a{padding:1px;font-size:10px;margin-right: 2px}
+}

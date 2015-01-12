@@ -1,0 +1,70 @@
+<h2><strong>User</strong> Add</h2>
+<div class="row-fluid">
+			<form method="POST">
+				<div class="col-md-12">
+			    <div class="col-lg-6">
+			        <div class="form-group">
+			            <label>User Type:<span class="form-required" title="This field is required.">*</span></label>
+			            <select class="form-control" id="userType" ng-options="item.id as item.name for item in settingModel.user_types" name="ndaId" style="width:100%"  ng-model="settingModel.user_selected_type">
+			                <option></option>
+			                    
+			            </select>                                        
+			        </div>
+			        <div class="form-group">
+			            <label>Username:<span class="form-required" title="This field is required.">*</span></label>
+			            <!-- <select id="year" name="ndaId" style="width:100%"  ng-model="settingModel.selected_year">
+			                <option></option>
+			                <option value="2010">2010</option>
+			                <option value="2011">2011</option>
+			                <option value="2012">2012</option>
+			                <option value="2013">2013</option>
+			                <option value="2014">2014</option>
+			                <option value="2015">2015</option>
+			                <option value="2016">2016</option>
+			                <option value="2017">2017</option>
+			                <option value="2018">2018</option>
+			                <option value="2019">2019</option>
+			                    
+			            </select>   -->
+			            <input type="text" class="form-control" name="year" id="year" ng-model="settingModel.user_username" />                                      
+			        </div>
+			    </div>
+			    <div class="col-lg-6">
+			        <div class="form-group">
+			            <label>Full Name:<span class="form-required" title="This field is required.">*</span></label>
+			            <input type="text" class="form-control" name="year" id="year" ng-model="settingModel.user_fullName" />                                      
+			        </div>
+			        
+
+			        <div class="form-group">
+			            <label>Password:<span class="form-required" title="This field is required.">*</span></label>
+			            <input type="password" class="form-control" name="value" id="value" ng-model="settingModel.user_password" />                                      
+			        </div>
+			    </div>
+			        
+			        <div class="block-footer">
+			        <div class="pull-right">                                                                                    
+			                <button class="btn btn-inverse" type="submit" ng-click="addUser()" id="submitBtn">Submit</button>
+			            </div>
+			        </div>
+			    </div>
+			</form>
+			
+
+</div>
+<div class="row-fluid">
+	<h2><strong>Users</strong></h2>
+	<table class="table table-striped">
+	    <th>FullName</th>
+	    <th>Username</th>
+	    <th>Usertype</th>
+	    <tr ng-repeat="user in settingModel.users track by $index">
+        <td>{{user.fullname}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.user_type.name}}</td>
+    </table>
+</div>
+<script type="text/javascript">
+//$('#userType').select2({placeholder:'Please select user type'});
+//$('#year').select2({placeholder:'Please select year'});
+</script>

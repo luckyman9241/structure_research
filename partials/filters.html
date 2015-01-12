@@ -1,0 +1,114 @@
+<div>
+    
+    <div class="col-md-12" style="background-color:#fff!important;margin-top: 3%;">
+                                <div class="row">
+                                    <div class="col-lg-2-5 col-md-2">
+                                        <input type="text" placeholder="Company Name" class="form-control" name="range" id="compName" ng-model="dashboardModel.selected_comp_filter" ng-keyup="filterCompanies(selected_comp_filter,dashboardModel.selected_country_filter,dashboardModel.selected_region_filter,selected_year_filter)" />
+                                    </div>
+                                    <div class="col-lg-2-5 customSelect">
+                                        <select class="form-control downArrow" id="countryID" ng-options="item.id as item.name for item in dashboardModel.countries" style="width:100%"  ng-model="dashboardModel.selected_country_filter" ng-change="filterCompanies(selected_comp_filter,dashboardModel.selected_country_filter,dashboardModel.selected_region_filter,selected_year_filter)" placeholder="Select Region">
+    
+    
+        
+</select>
+
+                                    </div>
+                                    <div class="col-lg-2-5 customSelect">
+                                        
+                                        <select class="form-control downArrow" id="regionID" ng-options="item.id as item.name for item in dashboardModel.regions"  style="width:100%"  ng-model="dashboardModel.selected_region_filter" ng-change="filterCompanies(selected_comp_filter,dashboardModel.selected_country_filter,dashboardModel.selected_region_filter,selected_year_filter)" placeholder="Select Region">
+    
+    
+        
+</select>
+                                    </div>
+                                    <div class="col-lg-2-5 customSelect">
+                                        <select class="form-control downArrow" id="year"  ng-change="filterCompanies(selected_comp_filter,dashboardModel.selected_country_filter,dashboardModel.selected_region_filter,selected_year_filter)" ng-model="dashboardModel.selected_year_filter">
+    <option value="All" selected>Current year</option>
+    <option value="2010" >2010</option>
+    <option value="2011">2011</option>
+    <option value="2012">2012</option>
+    <option value="2013">2013</option>
+    <option value="2014">2014</option>
+    <option value="2015">2015</option>
+    <option value="2016">2016</option>
+    <option value="2017">2017</option>
+    <option value="2018">2018</option>
+    <option value="2019">2019</option>
+    <option value="2020">2020</option>
+    <option value="2021">2021</option>
+    <option value="2022">2022</option>
+    <option value="2023">2023</option>
+    <option value="2024">2024</option>
+    <option value="2025">2025</option>
+</select> 
+                                    </div>
+                                    <div class="col-lg-1" >
+                                        <div class="clear-btn btn btn-danger" ng-click="clearAll()">CLR</div>
+
+                                    </div>
+                                    <div class="col-lg-4-5">
+                                        <a href="" ng-click="addForm()" ng-show="dashboardModel.userTypeId==1"><img src="/browser_components/images/bttnAdd.png" alt="img"/></a>
+                                         <a href="" ng-click="changeView(2)" ng-show="dashboardModel.userTypeId==1 && selectedTab != 1 && selectedTab != 2"><img src="{{dashboardModel.percentActive}}" alt="img"/></a>
+                                          <a href="" ng-click="changeView(1)" ng-show="dashboardModel.userTypeId==1 && selectedTab != 1 && selectedTab != 2"><img src="{{dashboardModel.dollarActive}}" alt="img" style="margin-left: -5px;"/></a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="background-color:#fff!important;">
+                                <div class="row">
+                                    <div class="slider-content">
+                                        <div class="col-md-2 col-sm-12 col-xs-12">
+                                            <label for="slider-0">RETURNS:</label>
+                                        </div>
+                                        <!-- <div class="col-md-9 col-sm-12 col-xs-12">
+                                            <input class="vHorizon" type="range" name="slider" id="slider-0" ng-model="dashboardModel.selected_year_filter" min="0" max="1000"  onchange="outputUpdate(value)" />
+                                        </div>
+                                        <div class="col-md-offset-2 col-md-9 col-sm-12 col-xs-12 slider-values">
+                                            <div class="max-width">
+                                                <label>Max</label>
+                                            </div>
+                                            <div class="min-width">
+                                                <label>0</label>
+                                            </div>
+                                        </div> -->
+                                        <div class="col-md-10">
+                                            <div range-slider min="0" max="1000" model-min="dashboardModel.revenueMin" model-max="dashboardModel.revenueMax" step="1" rangeSlider></div>
+                                        </div>
+                                         
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+<script type="text/javascript">
+
+function outputUpdate(vol) {
+    $('.min-width label').html(vol);
+}
+
+$('.customSelect').click(function(){
+    if($(this).find('select').hasClass('downArrow')){
+        $(this).find('select').removeClass('downArrow').addClass('upArrow');
+
+    } else{
+        $(this).find('select').removeClass('upArrow').addClass('downArrow');
+    }
+});
+
+
+/*function open(elem) {
+    if (document.createEvent) {
+        var e = document.createEvent("MouseEvents");
+        e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        elem[0].dispatchEvent(e);
+    } 
+}
+function close(elem) {
+    if (document.createEvent) {
+        var e = document.createEvent("MouseEvents");
+        e.initMouseEvent("mouseup", false, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        elem[0].dispatchEvent(e);
+    } 
+}*/
+</script>

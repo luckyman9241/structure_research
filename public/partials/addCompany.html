@@ -1,0 +1,315 @@
+
+
+<div class="col-md-12" style="background-color:#fff!important;padding: 20px;">
+<div class="block-content">
+    <h2><strong>Company</strong> Add</h2>
+                
+<div class="container-fluid">
+<form method="POST" id="addCompanyForm">
+    <div class="col-md-6">
+        <div class="col-lg-12">
+            <label>Name:<span class="form-required" title="This field is required.">*</span></label>                                        
+            <input type="text" class="form-control" name="name" id="name"   ng-model="companyModel.name" placeholder="Company Name"/>
+        </div>
+        <div class="col-lg-12">
+            <label>Analyst:<!-- <span class="form-required" title="This field is required.">*</span> --></label>                                        
+            <!-- <input type="text" class="form-control" name="analyst" id="analyst"   ng-model="companyModel.analyst" placeholder="Company Analyst"/> -->
+            <div class="form-group customInnerSelect"><select class="form-control downArrow" id="analyst" ng-options="item.id as item.name for item in companyModel.analysts" name="analyst"  style="width:100%"  ng-model="companyModel.selected_analyst">
+                   
+            </select></div>
+        </div>
+        <div class="col-lg-12">
+            <label>Status:<!-- <span class="form-required" title="This field is required.">*</span> --></label>                                        
+            <!-- <input type="text" class="form-control" name="status" id="status"   ng-model="companyModel.status" placeholder="Company Status"/> -->
+            <div class="form-group customInnerSelect"><select class="form-control downArrow" id="status" ng-options="item.id as item.name for item in companyModel.statuses" name="status"  style="width:100%"  ng-model="companyModel.selected_status">
+                   
+            </select></div>
+        </div>
+
+        <div class="col-lg-12">
+            <label>Confidence Level:<!-- <span class="form-required" title="This field is required.">*</span> --></label> <br />
+            <div class="form-group customInnerSelect"><select class="form-control downArrow" id="confidenceId" ng-options="item.id as item.name for item in companyModel.confidence_levels" name="confidenceId"  style="width:100%"  ng-model="companyModel.selected_confidence_level" >
+                 ect>                                        
+        </div>
+
+        <div class="col-lg-12">
+            <label>NDA:<!-- <span class="form-required" title="This field is required.">*</span> --></label>
+            <div class="form-group customInnerSelect"><select class="form-control downArrow" id="ndaId" ng-options="item.id as item.name for item in companyModel.ndas" name="ndaId"  style="width:100%"  ng-model="companyModel.selected_nda">
+                    
+            </select></div>                                        
+        </div>
+
+        <div class="col-lg-12">
+            <label>Country:<!-- <span class="form-required" title="This field is required.">*</span> --></label>
+            <div class="form-group customInnerSelect"><select class="form-control downArrow" id="countryId" ng-options="item.id as item.name for item in companyModel.countries" name="countryId"  style="width:100%"  ng-model="companyModel.selected_country">
+                   
+            </select></div>                                        
+        </div>
+
+        <div class="col-lg-12">
+            <label>Region:<!-- <span class="form-required" title="This field is required.">*</span> --></label>
+            <div class="form-group customInnerSelect"><select class="form-control downArrow" id="regionId" ng-options="item.id as item.name for item in companyModel.regions" name="regionId"  style="width:100%"  ng-model="companyModel.selected_region" >
+                    
+            </select></div>                                        
+        </div>
+        <div class="col-lg-12">
+            <label>DC Partner:<!-- <span class="form-required" title="This field is required.">*</span> --></label>                                        
+            <input type="text" class="form-control" name="txtnofdcs" id="nofdcs"   ng-model="companyModel.dcpartner" placeholder="Company DC Partner"/>
+        </div>
+
+        <div class="col-lg-12">
+            <label>Investor:<!-- <span class="form-required" title="This field is required.">*</span> --></label>                                        
+            <input type="text" class="form-control" name="txtnofdcs" id="nofdcs"   ng-model="companyModel.investor" placeholder="Company Investor"/>
+        </div>
+         <div class="col-lg-12">
+            <label>Parent Company:<!-- <span class="form-required" title="This field is required.">*</span> --></label>                                        
+            <input type="text" class="form-control" name="txtnofdcs" id="nofdcs"   ng-model="companyModel.parent_company" placeholder="Parent Company"/>
+        </div>
+        
+    </div>
+
+    <div class="col-md-6">
+        <div class="col-lg-12">
+            <label>HQ City:<!-- <span class="form-required" title="This field is required.">*</span> --></label>
+            <div class="form-group customInnerSelect"><select class="form-control downArrow" id="hqcityId" ng-options="item.id as item.name for item in companyModel.cities" name="hqcityId"  style="width:100%"  ng-model="companyModel.selected_city" >
+                    
+            </select></div>                                        
+        </div>
+        <div class="col-lg-12">
+            <label>HQ State:<!-- <span class="form-required" title="This field is required.">*</span> --></label>
+            <div class="form-group customInnerSelect"><select class="form-control downArrow" id="hqstateId" ng-options="item.id as item.name for item in companyModel.states" name="hqstateId"  style="width:100%"  ng-model="companyModel.selected_state" >
+                    
+            </select></div>                                        
+        </div>
+
+         <div class="col-lg-12">
+            <label>Website:<!-- <span class="form-required" title="This field is required.">*</span> --></label>                                        
+            <input type="text" class="form-control" name="website" id="website"   ng-model="companyModel.website" placeholder="Company Website"/>
+        </div>
+
+        <div class="col-lg-12">
+            <label>Company Type:<!-- <span class="form-required" title="This field is required.">*</span> --></label>
+            <div class="form-group customInnerSelect"><select class="form-control downArrow" id="companytypeId" ng-options="item.id as item.name for item in companyModel.companyTypes" name="companytypeId"  style="width:100%"  ng-model="companyModel.selected_companyType" >
+                    
+            </select></div>                                        
+        </div>
+
+        <div class="col-lg-12">
+            <label>CEO:<!-- <span class="form-required" title="This field is required.">*</span> --></label>                                        
+            <input type="text" class="form-control" name="txtceo" id="ceo"  ng-model="companyModel.ceo" placeholder="Company CEO"/> 
+        </div>
+        <div class="col-lg-12">
+            <label>PSL:<!-- <span class="form-required" title="This field is required.">*</span> --></label>                                        
+            <input type="text" class="form-control" name="txtpsl" id="psl"  ng-model="companyModel.psl"  placeholder="Company PSL"/>
+        </div>
+        <div class="col-lg-12">
+            <label>Number of DCS:<!-- <span class="form-required" title="This field is required.">*</span> --></label>                                        
+            <input type="text" class="form-control" name="txtnofdcs" id="nofdcs"   ng-model="companyModel.nofdcs" placeholder="Company No. of DC"/>
+        </div>
+        <div class="col-lg-12">
+            <label>DC Location:<!-- <span class="form-required" title="This field is required.">*</span> --></label>                                        
+            <input type="text" class="form-control" name="txtnofdcs" id="nofdcs"   ng-model="companyModel.dclocation" placeholder="Company DC Location"/>
+        </div>
+        <div class="col-lg-12">
+            <label>Company Classification:</span></label>
+            <select class="form-control" id="classification" ng-options="item.id as item.name for item in companyModel.classifications" name="companytypeId"  style="width:100%"  ng-model="companyModel.selected_classifications" multiple>
+                    
+            </select>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <h3>Company Revenues<!-- <div class="form-group customInnerSelect"><select class="form-control downArrow" id="GrwothYearSelect" name= "GrwothYearSelect[]" class="pull-right" style="width:50%!important;margin-bottom:10px" ng-model="companyModel.selected_base_year">
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+            </select></div> --></h3>
+        <table class="table table-striped">
+            <th>Type</th>
+            <th>Base Year</th>
+            <th>Base Value</th>
+            <th>Base Growth Rate</th>
+            <tr ng-repeat="growth in companyModel.growths track by $index">
+            <td>{{growth.name}}</td>
+            <td>
+                <div class="form-group customInnerSelect">
+                    <select class="form-control downArrow" id="base_year_value_{{growth.id}}" name='base_year_value[]' placeholder="Base Year Value" >
+                            <option value="2010">2010</option>
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                    </select>
+                </div>
+            </td>
+            
+            <td>
+                <div>
+                    <!-- <label>{{growth.name}} Value:<span class="form-required" title="This field is required.">*</span></label>        -->
+                    <input type="hidden" name="type_id[]" value="{{growth.id}}"/>
+                    <input type="text" class="form-control" id="base_revenue_value_{{growth.id}}" name="base_revenue_value[]" placeholder="Base Value"/>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <!-- <label>{{growth.name}} Growth Rate:<span class="form-required" title="This field is required.">*</span></label>   -->                                      
+                    <input type="text" class="form-control" id="base_growth_value_{{growth.id}}" name="base_growth_value[]" placeholder="Base Growth Rate"/>
+                </div>
+            </td>
+        </table>
+        <!-- <div id="moreRevenue"></div>
+        <button type="button" class="btn btn-primary btn-xs" ng-click="addMoreRevenue()">Add More</button> -->
+
+
+        <h3>Company Segment
+        <div class="form-group customInnerSelect">
+        <select class="form-control downArrow" id="RevenueYearSelect" name="RevenueYearSelect[]" class="pull-right" style="width:50%!important;margin-bottom:10px">
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+            </select></div></h3>
+        <table class="table table-striped">
+            <th>Segment Type</th>
+            <th>% of total revenue</th>
+            <tr ng-repeat="revenue in companyModel.revenues track by $index">
+            <td>{{revenue.name}}</td>
+            <td><input type="hidden" name="RevenueIds[]" value="{{revenue.id}}"/>
+
+                
+            <input type="text" class="form-control" name="RevenueValue[]" id="nofdcs"  placeholder="% of total revenue"/></td>
+        </table>
+       <!-- <div id="moreSegment"></div>
+        <button type="button" class="btn btn-primary btn-xs" ng-click="addMoreSegment()">Add More</button> -->
+        <label><input type="checkbox" value='1' ng-model="companyModel.SegmentApplyAll"/> Apply All</label>
+    </div>
+    <div class="col-md-12">
+        <h3>Company Geo<div class="form-group customInnerSelect"><select class="form-control downArrow" id="GeoYearSelect" name="GeoYearSelect[]" class="pull-right" style="width:50%!important;margin-bottom:10px">
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+            </select></div></h3>
+        
+        <table class="table table-striped">
+            <th>Geo Type</th>
+            <th>% of total revenue</th>
+            <tr ng-repeat="geo in companyModel.geos track by $index">
+            <td>{{geo.name}}</td>
+            <td><input type="hidden" name="GeoIds[]" value="{{geo.id}}"/>
+                
+            <input type="text" class="form-control" name="GeoValue[]" id="nofdcs"  placeholder="% of total revenue"/></td>
+        </table>
+    <!-- <div id="moreGeo"></div>
+        <button type="button" class="btn btn-primary btn-xs" ng-click="addMoreGeo()">Add More</button>
+    </div>  -->
+        <label><input type="checkbox" value='1' ng-model="companyModel.GeoApplyAll"/> Apply All</label>
+    </div>
+    <div class="col-md-12">
+        <div class="block-footer">
+        <div class="pull-right">                                                                                    
+                <button class="btn btn-inverse" type="submit" ng-click="addCompany()" id="submitBtn">Submit</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+</form>
+</div>
+</div>                  
+</div>            
+<script type="text/javascript">
+/*
+$('#companytypeId').select2({placeholder:'Please select company Type'});
+$('#hqstateId').select2({placeholder:'Please select HQ State'});
+$('#hqcityId').select2({placeholder:'Please select HQ City'});
+$('#regionId').select2({placeholder:'Please select region'});
+$('#countryId').select2({placeholder:'Please select country'});
+$('#ndaId').select2({placeholder:'Please select nda'});
+$('#confidenceId').select2({placeholder:'Please select confidence'});
+
+$('#GrwothYearSelect').select2({placeholder:'Please select base year'});
+$('#RevenueYearSelect').select2({placeholder:'Please select year'});
+$('#GeoYearSelect').select2({placeholder:'Please select year'});
+$('#classification').select2({placeholder:'Select Classifications'});
+$('#status').select2({placeholder:'Select Status'});
+$('#analyst').select2({placeholder:'Select Analyst'});
+*/
+$('.customInnerSelect').click(function(){
+    if($(this).find('select').hasClass('downArrow')){
+        $(this).find('select').removeClass('downArrow').addClass('upArrow');
+    } else{
+        $(this).find('select').removeClass('upArrow').addClass('downArrow');
+    }
+
+});
+
+
+function open(elem) {
+    if (document.createEvent) {
+        var e = document.createEvent("MouseEvents");
+        e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        elem[0].dispatchEvent(e);
+    } else if (element.fireEvent) {
+        elem[0].fireEvent("onmousedown");
+    }
+}
+function close(elem) {
+    if (document.createEvent) {
+        var e = document.createEvent("MouseEvents");
+        e.initMouseEvent("mouseup", false, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        elem[0].dispatchEvent(e);
+    } else if (element.fireEvent) {
+        elem[0].fireEvent("onmouseup");
+    }
+}
+</script>
+
+<!--<input type="text"  name="username" ng-model="sessionModel.email_address" />
+
+<input type="button" ng-click="authenticate()" />
+
+{{sessionModel.email_address}}  -->

@@ -1,0 +1,39 @@
+
+
+<div class="col-md-12" style="background-color:#fff!important;padding: 20px;">
+    
+        <div class="block-content">
+            <h2><strong>Login</strong></h2>
+                        
+        <form method="POST">          
+            <div class="form-group">
+                <label>Username:</label>                                        
+                <input type="text" class="form-control" name="email" id="email" ng-model="LoginModel.username" /> 
+            </div>
+
+            <div class="form-group">
+                <label>Password:</label>                                        
+                <input type="password" class="form-control" name="password" id="password" ng-model="LoginModel.password" /> 
+            </div>
+            
+            
+
+            <div class="block-footer">
+                                                            
+                <div class="pull-right">                                                                                    
+                    <button class="btn btn-inverse" type="submit" id="submitBtn" ng-click="authenticate();">Login</button>
+                </div>
+            </div>
+        </form>
+            
+        </div>   
+    
+</div>
+             
+            
+
+<!--<input type="text" ng-enter name="username" ng-model="sessionModel.email_address" />
+
+<input type="button" ng-click="authenticate()" />
+
+{{sessionModel.email_address}}  -->

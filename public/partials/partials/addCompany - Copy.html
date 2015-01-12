@@ -1,0 +1,233 @@
+
+
+
+<div class="block-content">
+    <h2><strong>Company</strong> Add</h2>
+                
+<div class="container">
+<form method="POST" id="addCompanyForm">
+    <div class="span5">
+        <div class="form-group">
+            <label>Name:<span class="form-required" title="This field is required.">*</span></label>                                        
+            <input type="text" class="form-control" name="name" id="name"   ng-model="companyModel.name" placeholder="Company Name"/>
+        </div>
+        <div class="form-group">
+            <label>Analyst:<span class="form-required" title="This field is required.">*</span></label>                                        
+            <input type="text" class="form-control" name="analyst" id="analyst"   ng-model="companyModel.analyst" placeholder="Company Analyst"/>
+        </div>
+        <div class="form-group">
+            <label>Status:<span class="form-required" title="This field is required.">*</span></label>                                        
+            <input type="text" class="form-control" name="status" id="status"   ng-model="companyModel.status" placeholder="Company Status"/>
+        </div>
+
+        <div class="form-group">
+            <label>Confidence Level:<span class="form-required" title="This field is required.">*</span></label> <br />
+            <select id="confidenceId" ng-options="item.id as item.name for item in companyModel.confidence_levels" name="confidenceId"  style="width:100%"  ng-model="companyModel.selected_confidence_level" >
+                 <option></option>
+            </select>                                        
+        </div>
+
+        <div class="form-group">
+            <label>NDA:<span class="form-required" title="This field is required.">*</span></label>
+            <select id="ndaId" ng-options="item.id as item.name for item in companyModel.ndas" name="ndaId"  style="width:100%"  ng-model="companyModel.selected_nda">
+                <option></option>
+                    
+            </select>                                        
+        </div>
+
+        <div class="form-group">
+            <label>Country:<span class="form-required" title="This field is required.">*</span></label>
+            <select id="countryId" ng-options="item.id as item.name for item in companyModel.countries" name="countryId"  style="width:100%"  ng-model="companyModel.selected_country">
+                <option></option>
+                   
+            </select>                                        
+        </div>
+
+        <div class="form-group">
+            <label>Region:<span class="form-required" title="This field is required.">*</span></label>
+            <select id="regionId" ng-options="item.id as item.name for item in companyModel.regions" name="regionId"  style="width:100%"  ng-model="companyModel.selected_region" >
+                <option></option>
+                    
+            </select>                                        
+        </div>
+        <div class="form-group">
+            <label>DC Partner:<span class="form-required" title="This field is required.">*</span></label>                                        
+            <input type="text" class="form-control" name="txtnofdcs" id="nofdcs"   ng-model="companyModel.dcpartner" placeholder="Company DC Partner"/>
+        </div>
+
+        <div class="form-group">
+            <label>Investor:<span class="form-required" title="This field is required.">*</span></label>                                        
+            <input type="text" class="form-control" name="txtnofdcs" id="nofdcs"   ng-model="companyModel.investor" placeholder="Company Investor"/>
+        </div>
+        
+    </div>
+
+    <div class="span5">
+        <div class="form-group">
+            <label>HQ City:<span class="form-required" title="This field is required.">*</span></label>
+            <select id="hqcityId" ng-options="item.id as item.name for item in companyModel.cities" name="hqcityId"  style="width:100%"  ng-model="companyModel.selected_city" >
+                <option></option>
+                    
+            </select>                                        
+        </div>
+        <div class="form-group">
+            <label>HQ State:<span class="form-required" title="This field is required.">*</span></label>
+            <select id="hqstateId" ng-options="item.id as item.name for item in companyModel.states" name="hqstateId"  style="width:100%"  ng-model="companyModel.selected_state" >
+                <option></option>
+                    
+            </select>                                        
+        </div>
+
+         <div class="form-group">
+            <label>Website:<span class="form-required" title="This field is required.">*</span></label>                                        
+            <input type="text" class="form-control" name="website" id="website"   ng-model="companyModel.website" placeholder="Company Website"/>
+        </div>
+
+        <div class="form-group">
+            <label>Company Type:<span class="form-required" title="This field is required.">*</span></label>
+            <select id="companytypeId" ng-options="item.id as item.name for item in companyModel.companyTypes" name="companytypeId"  style="width:100%"  ng-model="companyModel.selected_companyType" >
+                <option></option>
+                    
+            </select>                                        
+        </div>
+
+        <div class="form-group">
+            <label>CEO:<span class="form-required" title="This field is required.">*</span></label>                                        
+            <input type="text" class="form-control" name="txtceo" id="ceo"  ng-model="companyModel.ceo" placeholder="Company CEO"/> 
+        </div>
+        <div class="form-group">
+            <label>PSL:<span class="form-required" title="This field is required.">*</span></label>                                        
+            <input type="text" class="form-control" name="txtpsl" id="psl"  ng-model="companyModel.psl"  placeholder="Company PSL"/>
+        </div>
+        <div class="form-group">
+            <label>Number of DCS:<span class="form-required" title="This field is required.">*</span></label>                                        
+            <input type="text" class="form-control" name="txtnofdcs" id="nofdcs"   ng-model="companyModel.nofdcs" placeholder="Company No. of DC"/>
+        </div>
+        <div class="form-group">
+            <label>DC Location:<span class="form-required" title="This field is required.">*</span></label>                                        
+            <input type="text" class="form-control" name="txtnofdcs" id="nofdcs"   ng-model="companyModel.dclocation" placeholder="Company DC Location"/>
+        </div>
+        <div class="form-group">
+            <label>Company Classification:</span></label>
+            <select id="classification" ng-options="item.id as item.name for item in companyModel.classifications" name="companytypeId"  style="width:100%"  ng-model="companyModel.selected_classifications" multiple>
+                <option></option>
+                    
+            </select> 
+        </div>
+    </div>
+    <div class="span5">
+        <h3>Company Revenues<select id="GrwothYearSelect" name= "GrwothYearSelect[]" class="pull-right" style="width:50%!important;margin-bottom:10px">
+            <option></option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+            </select></h3>
+        <table class="table table-striped">
+            <th>Revenue Type</th>
+            <th>Value</th>
+            <tr ng-repeat="growth in companyModel.growths track by $index">
+            <td>{{growth.name}}</td>
+            <td><input type="hidden" name="growthIds[]" value="{{growth.id}}"/>
+                
+            <input type="text" class="form-control" name="growthValue[]" id="nofdcs"  placeholder="Value"/>
+        </td>
+        </table>
+        <div id="moreRevenue"></div>
+        <button type="button" class="btn btn-primary btn-xs" ng-click="addMoreRevenue()">Add More</button>
+
+
+        <h3>Company Segment<select id="RevenueYearSelect" name="RevenueYearSelect[]" class="pull-right" style="width:50%!important;margin-bottom:10px">
+            <option></option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+            </select></h3>
+        <table class="table table-striped">
+            <th>Segment Type</th>
+            <th>Value</th>
+            <tr ng-repeat="revenue in companyModel.revenues track by $index">
+            <td>{{revenue.name}}</td>
+            <td><input type="hidden" name="RevenueIds[]" value="{{revenue.id}}"/>
+
+                
+            <input type="text" class="form-control" name="RevenueValue[]" id="nofdcs"  placeholder="Value"/></td>
+        </table>
+       <div id="moreSegment"></div>
+        <button type="button" class="btn btn-primary btn-xs" ng-click="addMoreSegment()">Add More</button>
+    </div>
+    <div class="span5">
+        <h3>Company Geo<select id="GeoYearSelect" name="GeoYearSelect[]" class="pull-right" style="width:50%!important;margin-bottom:10px">
+            <option></option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+            </select></h3>
+        
+        <table class="table table-striped">
+            <th>Geo Type</th>
+            <th>Value</th>
+            <tr ng-repeat="geo in companyModel.geos track by $index">
+            <td>{{geo.name}}</td>
+            <td><input type="hidden" name="GeoIds[]" value="{{geo.id}}"/>
+                
+            <input type="text" class="form-control" name="GeoValue[]" id="nofdcs"  placeholder="Value"/></td>
+        </table>
+    <div id="moreGeo"></div>
+        <button type="button" class="btn btn-primary btn-xs" ng-click="addMoreGeo()">Add More</button>
+    </div> 
+    <div class="span10">
+        <div class="block-footer">
+        <div class="pull-right">                                                                                    
+                <button class="btn btn-success" type="submit" ng-click="addCompany()" id="submitBtn">Submit</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+</form>
+</div>
+</div>                  
+            
+<script type="text/javascript">
+$('#companytypeId').select2({placeholder:'Please select company Type'});
+$('#hqstateId').select2({placeholder:'Please select HQ State'});
+$('#hqcityId').select2({placeholder:'Please select HQ City'});
+$('#regionId').select2({placeholder:'Please select region'});
+$('#countryId').select2({placeholder:'Please select country'});
+$('#ndaId').select2({placeholder:'Please select nda'});
+$('#confidenceId').select2({placeholder:'Please select confidence'});
+
+$('#GrwothYearSelect').select2({placeholder:'Please select year'});
+$('#RevenueYearSelect').select2({placeholder:'Please select year'});
+$('#GeoYearSelect').select2({placeholder:'Please select year'});
+$('#classification').select2({placeholder:'Select Classifications'});
+
+</script>
+
+<!--<input type="text"  name="username" ng-model="sessionModel.email_address" />
+
+<input type="button" ng-click="authenticate()" />
+
+{{sessionModel.email_address}}  -->

@@ -1,0 +1,152 @@
+<div class="col-md-12" style="background-color:#fff!important;padding: 20px;">
+<h2><strong>Company Revenue</strong> Edit</h2>
+<div class="row-fluid">
+			<form method="POST">
+				<div class="col-md-12">
+		        <div class="col-lg-2-5">
+			        <div class="form-group customInnerSelect">
+			            <label>Company:<span class="form-required" title="This field is required.">*</span></label>
+			            <select class="form-control downArrow" id="compIDR" ng-options="item.id as item.name for item in dashboardModel.Allcompanies" name="growthCompanies" style="width:100%"  ng-model="dashboardModel.selected_company" ng-change="fetchCompanyYearRevenue()">
+			                <option></option>
+			                    
+			            </select>                                        
+			        </div>
+			    </div>
+			    <div class="col-lg-2-5">
+				    <div class="form-group customInnerSelect">
+			            <label>Year:<span class="form-required" title="This field is required.">*</span></label>
+				        <select class="form-control downArrow" id="yearR" ng-model="dashboardModel.selected_year" ng-change="fetchCompanyYearRevenue()">
+				            <option></option>
+				                <option value="2010">2010</option>
+				                <option value="2011">2011</option>
+				                <option value="2012">2012</option>
+				                <option value="2013">2013</option>
+				                <option value="2014" >2014</option>
+				                <option value="2015">2015</option>
+				                <option value="2016">2016</option>
+				                <option value="2017">2017</option>
+				                <option value="2018">2018</option>
+				                <option value="2019">2019</option>
+				                <option value="2020">2020</option>
+				        </select>
+			        </div>
+			    </div>
+			    <table class="table table-striped">
+			            <th>Type</th>
+			            <th>Base Year</th>
+			            <th>Base Value</th>
+			            <th>Base Growth Rate</th>
+			            <th>Growth Rate</th>
+			            <th>Growth Value</th>
+			            <tr ng-repeat="growth in dashboardModel.growths track by $index">
+			            	<td>
+			            		{{growth.name}}
+			            	</td>
+			            	<td>
+			            		<div class="form-group">
+						            <!-- <label>{{growth.name}} Value:<span class="form-required" title="This field is required.">*</span></label>        -->
+						            <input type="hidden" name="type_id[]" value="{{growth.id}}"/>
+						            <div class="form-group customInnerSelect">
+						            <select id="base_year_value_{{growth.id}}" name='base_year_value[]' placeholder="Base Year Value" class="form-control downArrow" >
+							                <option value="2010">2010</option>
+							                <option value="2011">2011</option>
+							                <option value="2012">2012</option>
+							                <option value="2013">2013</option>
+							                <option value="2014">2014</option>
+							                <option value="2015">2015</option>
+							                <option value="2016">2016</option>
+							                <option value="2017">2017</option>
+							                <option value="2018">2018</option>
+							                <option value="2019">2019</option>
+							                <option value="2020">2020</option>
+							        </select>
+							        </div>
+						        </div>
+			            	</td>
+			            	
+			            	<td>
+			            		<div class="form-group">
+						            <!-- <label>{{growth.name}} Value:<span class="form-required" title="This field is required.">*</span></label>        -->
+						            <input type="text" class="form-control" id="base_revenue_value_{{growth.id}}" name="base_revenue_value[]" placeholder="Base {{growth.name}} Value"/>
+						        </div>
+			            	</td>
+
+			            	<td>
+			            		<div class="form-group">
+						            <!-- <label>{{growth.name}} Growth Rate:<span class="form-required" title="This field is required.">*</span></label>   -->                                      
+						            <input type="text" class="form-control" id="base_growth_value_{{growth.id}}" name="base_growth_value[]" placeholder="Base Growth Rate "/>
+						        </div>
+			            	</td>
+			            	<td>
+			            		<div class="form-group">
+						            <!-- <label>{{growth.name}} Value:<span class="form-required" title="This field is required.">*</span></label>        -->
+						            <input type="text" class="form-control" id="revenue_value_{{growth.id}}" name="revenue_value[]" placeholder="Growth Rate"/>
+						        </div>
+			            	</td>
+			            	<td>
+			            		<div class="form-group">
+						            <!-- <label>{{growth.name}} Growth Rate:<span class="form-required" title="This field is required.">*</span></label>   -->                                      
+						            <input type="text" class="form-control" id="growth_value_{{growth.id}}" name="growth_value[]" placeholder="Growth Rate Value" readonly/>
+						        </div>
+			            	</td>
+			            	
+			            </tr>
+			   	</table>
+			    
+			    	
+		        <!-- <div class="form-group">
+		            <label><input type="checkbox" value='1' ng-model="dashboardModel.applyAll"/>Apply All</label>                                        
+		            
+		        </div> -->
+		        </div>
+			    <div class="block-footer">
+			        <div class="pull-right">                                                                                    
+			                <button class="btn btn-inverse" type="submit" ng-click="addCompanyGrowth()" id="submitBtn">Submit</button>
+			            </div>
+			        </div>
+			</form>
+			
+
+</div>
+</div>
+<script type="text/javascript">
+/*$('#growthID').select2({placeholder:'Please select growth Type'});
+$('#compIDR').select2({placeholder:'Please select company'});
+$('#yearR').select2({placeholder:'Please select year'});*/
+$('.customInnerSelect').click(function(){
+	if($(this).find('select').hasClass('downArrow')){
+    	$(this).find('select').removeClass('downArrow').addClass('upArrow');
+
+    } else{
+    	$(this).find('select').removeClass('upArrow').addClass('downArrow');
+    }
+});
+/*$('.customInnerSelect').click(function(){
+    if($(this).hasClass('customInnerSelect')){
+    	open($("#"+$(this).find('select').attr('id')));
+        $(this).removeClass('customInnerSelect').addClass('customInnerSelectUp');
+    } else{
+    	close($("#"+$(this).find('select').attr('id')));
+	   	$(this).removeClass('customInnerSelectUp').addClass('customInnerSelect');
+    }
+});
+
+function open(elem) {
+    if (document.createEvent) {
+        var e = document.createEvent("MouseEvents");
+        e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        elem[0].dispatchEvent(e);
+    } else if (element.fireEvent) {
+        elem[0].fireEvent("onmousedown");
+    }
+}
+function close(elem) {
+    if (document.createEvent) {
+        var e = document.createEvent("MouseEvents");
+        e.initMouseEvent("mouseup", false, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        elem[0].dispatchEvent(e);
+    } else if (element.fireEvent) {
+        elem[0].fireEvent("onmouseup");
+    }
+}*/
+</script>

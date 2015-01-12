@@ -1,0 +1,172 @@
+<!DOCTYPE html">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" ng-app="myApp" class="no-js">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <title>Sr App</title>
+        <link href="browser_components/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="browser_components/css/font-awesome.min.css">
+        <link href="browser_components/css/main.css" rel="stylesheet" type="text/css" />
+        <link href="browser_components/messenger/build/css/messenger.css" rel="stylesheet" type="text/css" />
+        <link href="browser_components/messenger/build/css/messenger-theme-block.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="browser_components/bootstrap.vertical-tabs.css" type="text/css">
+        <link href="browser_components/rangeSlider/angular.rangeSlider.css" rel="stylesheet" type="text/css" />
+        <link href="browser_components/dataTable/fixed-header.css" rel="stylesheet" type="text/css" />
+        <link href="browser_components/ngTable/ng-table.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="browser_components/ngProgress/ngProgress.css">
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="browser_components/js/simulate.js"></script>
+        <script type="text/javascript" src="browser_components/js/jquery.stickytableheaders.min.js"></script>
+        
+        <link rel="shortcut icon" href="browser_components/images/favIcon.ico">
+        <style>
+
+
+        
+        /*
+         *  STYLE 1
+         */
+
+        #style-1::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 1px;
+            background-color: #F5F5F5;
+        }
+
+        #style-1::-webkit-scrollbar
+        {
+            width: 12px;
+            background-color: #989898;
+        }
+
+        #style-1::-webkit-scrollbar-thumb
+        {
+            border-radius: 1px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #989898;
+        }
+
+        </style>
+
+    </head>
+    <body id="style-1">
+        <div id="wrapper-outer" ng-controller='HomeController'>
+        <div id="header" >
+            <div class="container" >
+                <div class="row">
+                    <div class="header-content" >
+                        <div class="admin-area" ng-show="homeModel.isLoggedin==1">
+                            <label>Welcome <span style="text-transform:uppercase">{{homeModel.username}}<span></label>
+                            <select class="form-control" ng-change="changeOption()" ng-model = 'homeModel.menuLink' ng-show="homeModel.userTypeId==1" style="background-color:#363636;color:#fff">
+                                <option value="dashboard" ng-selected="homeModel.menuLink=='dashboard'">Dashboard</option>
+                                <option value="settings" ng-selected="homeModel.menuLink=='setting'">Settings</option>
+                                <option value="logout">Logout</option>
+                            </select>
+
+                            <select class="form-control" ng-change="changeOption()" ng-model = 'homeModel.menuLink' ng-show="homeModel.userTypeId==2" style="background-color:#363636;color:#fff">
+                                <option value="dashboard" ng-selected="homeModel.menuLink=='dashboard'">Dashboard</option>
+                                <option value="logout">Logout</option>
+                            </select>
+                            
+                        </div>
+                        <div class="logo">
+                            <a href="" ng-click="setMenuLink()"><img class="hidden-xs" src="/browser_components/images/Logo.png" alt="logo"/></a>
+                            <a href="" ng-click="setMenuLink()"><img class="hidden-lg hidden-md hidden-sm" src="/browser_components/images/logo-mobile.png" alt="logo"/></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" >
+            <div class="row">
+                <div id="section">
+                    <div class="col-md-12">
+                        <div class="widgets" ng-show="homeModel.isLoggedin==1">
+
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                <div class="dashboard-stat blue">
+                                    <div class="visual"><img src="browser_components/images/graphicsTotalCompanies.png" alt="img-widget"/></div>
+                                    <div class="details"><div class="number" ><span ng-bind="homeModel.companyTotal||0">0</span></div><div class="desc">TOTAL COMPANIES</div>
+                                    </div><a class="more" ></a></div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                <div class="dashboard-stat blue">
+                                    <div class="visual"><img src="browser_components/images/graphicsTotalRevenue.png" alt="img-widget"/></div>
+                                    <div class="details"><div class="number" ><span ng-bind="(homeModel.revenueTotal|number:1)||0">0</span></div><div class="desc">TOTAL REVENUE</div>
+                                    </div><a class="more" ></a></div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                <div class="dashboard-stat blue">
+                                    <div class="visual"><img src="browser_components/images/graphicsAvgRevenue.png" alt="img-widget"/></div>
+                                    <div class="details"><div class="number" ><span ng-bind="(homeModel.revenueTotal/homeModel.companyTotal| number:1)||0">0</span></div><div class="desc">AVERAGE REVENUE</div>
+                                    </div><a class="more" ></a></div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                <div class="dashboard-stat blue">
+                                    <div class="visual"><img src="browser_components/images/graphicsGrowth.png" alt="img-widget"/></div>
+                                    <div class="details"><div class="number" ><span  ng-bind="((homeModel.users/homeModel.companyTotal)| number:2)||0">0</span></div><div class="desc">AVG. REV. GROWTH</div>
+                                    </div><a class="more" ></a></div>
+                            </div>
+                        </div>
+                        <div class="below-widget-content">
+                            <div  ng-view class="row"></div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="browser_components/jquery/dist/jquery.js"></script>
+    <script src="browser_components/jquery-ui/ui/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="browser_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="browser_components/select2/select2.js"></script>
+    <script type="text/javascript" src="browser_components/jquery/realia.js"></script>
+    
+    <script type="text/javascript" src="browser_components/angular/angular.js"></script>
+    <script type="text/javascript" src="browser_components/dataTable/fixed-header.js"></script>
+    <!--<script type="text/javascript" src="browser_components/charts/angularjs-nvd3-directives.js"></script>
+    <script type="text/javascript" src="browser_components/charts/nv.d3.js"></script>
+    <script type="text/javascript" src="browser_components/charts/d3.js"></script>-->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+    <script type="text/javascript" src="browser_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="browser_components/jquery/angular-local-storage.js"></script>
+
+
+    <script type="text/javascript" src="browser_components/messenger/build/js/messenger.min.js"></script>
+    <script type="text/javascript" src="browser_components/messenger/build/js/messenger-theme-future.js"></script>
+    <script type="text/javascript" src="browser_components/rangeSlider/angular.rangeSlider.js"></script>
+    <script type="text/javascript" src="browser_components/progressBar/ui-bootstrap-0.10.0.js"></script>
+    <script type="text/javascript" src="browser_components/ngTable/ng-table.js"></script>
+    <script type="text/javascript" src="browser_components/ngProgress/ngProgress.js"></script>
+    
+
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controllers.home.js"></script>
+    <script type="text/javascript" src="js/controllers.company.js"></script>
+    <script type="text/javascript" src="js/controllers.setting.js"></script>
+    <script type="text/javascript" src="js/controllers.confidenceLevel.js"></script>
+    <script type="text/javascript" src="js/controllers.login.js"></script>
+    <script type="text/javascript" src="js/controllers.dashboard.js"></script>
+    <script type="text/javascript" src="js/controllers.growth.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    InitTabs();
+    Messenger.options = {
+        extraClasses: 'messenger-fixed messenger-on-top',
+        theme: 'block'
+    }
+
+$('html').removeClass('no-js');
+});
+
+</script>
+</html>

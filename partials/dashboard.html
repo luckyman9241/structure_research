@@ -1,0 +1,27 @@
+
+                            
+                            <div class="col-md-12" style="background-color:#fff!important;">
+                                    <div class="row" ng-include src="'partials/filters.html'"></div>
+                            </div>
+                            
+                            <div class="col-md-12">
+                                <div class="row">  
+                                    <div class="tab-content" id="myTab" style="background-color:#fff!important;">
+                                        <ul class="tabs nav nav-tabs" >
+                                            <li ng-class="selectedTab==1?'active':''" ><a href="" ng-click="setTab(1)">COMPANY</a></li>
+                                            <li ng-class="selectedTab==2?'active':''" ><a href="" ng-click="setTab(2)">REVENUE</a></li>
+                                            <li ng-class="selectedTab==3?'active':''" ><a href="" ng-click="setTab(3)">GEOGRAPHY</a></li>
+                                            <li ng-class="selectedTab==4?'active':''" ><a href="" ng-click="setTab(4)">SEGMENT</a></li>
+                                        </ul>
+
+                                        <div class="tab-content" style="background-color:#fff!important;">
+
+                                            <div  ng-include src="'partials/manageCompany.html'" ng-show="selectedTab==1" style="padding: 0px 20px;"></div>
+                                            <div  ng-include src="'partials/segmentDashboard.html'" ng-show="selectedTab==4"style="padding: 0px 20px;"></div>
+                                            <div  ng-include src="'partials/geographyDashboard.html'" ng-show="selectedTab==3"style="padding: 0px 20px;"></div>
+                                            <div  ng-include src="'partials/growth_main.html'" ng-show="selectedTab==2"style="padding: 0px 20px;"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>

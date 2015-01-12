@@ -1,0 +1,70 @@
+<div class="col-md-12" style="background-color:#fff!important;padding: 20px;">
+<h2><strong>Company Geo</strong> Edit</h2>
+<div class="row-fluid">
+			<form method="POST">
+				<div class="col-md-12">
+			    <div class="col-lg-2-5">
+			        <div class="form-group customInnerSelect">
+			            <label>Company:<span class="form-required" title="This field is required.">*</span></label>
+			            <select class="form-control downArrow" id="compIDG" ng-options="item.id as item.name for item in dashboardModel.Allcompanies" name="geoCompanies" style="width:100%"  ng-model="dashboardModel.selected_company" ng-change="fetchCompanyYearGeo()">
+			                <option></option>
+			                    
+			            </select>                                        
+			        </div>
+			       
+			    </div>
+			    <div class="col-lg-2-5">
+			        <div class="form-group customInnerSelect">
+			            <label>Year:<span class="form-required" title="This field is required.">*</span></label>
+				        <select class="form-control downArrow" id="yearG" ng-model="dashboardModel.selected_year" ng-change="fetchCompanyYearGeo()">
+				            <option></option>
+				                <option value="2010">2010</option>
+				                <option value="2011">2011</option>
+				                <option value="2012">2012</option>
+				                <option value="2013">2013</option>
+				                <option value="2014">2014</option>
+				                <option value="2015">2015</option>
+				                <option value="2016">2016</option>
+				                <option value="2017">2017</option>
+				                <option value="2018">2018</option>
+				                <option value="2019">2019</option>
+				        </select>
+			        </div>
+
+			        
+			    </div>
+			    <div style="margin-left:0px">
+			    	<table class="table table-striped">
+			            <th>Revenue Type</th>
+			            <th>% of total revenue</th>
+			            <tr ng-repeat="geo in dashboardModel.geos track by $index">
+			            <td>{{geo.name}}</td>
+			            <td><input type="hidden" name="GeoIds[]" value="{{geo.id}}"/>
+			            <input type="text" class="form-control" name="GeoValue[]" id="geoValue_{{$index}}"  placeholder="% of total revenue"/>
+			        </td>
+			        </table>
+			    </div>
+			    </div>
+			    <div class="form-group">
+			        <label><input type="checkbox" value='1' ng-model="dashboardModel.applyAll"/> Apply All</label>
+			    </div>
+			    <div class="block-footer">
+			        <div class="pull-right">                                                                                    
+			                <button class="btn btn-inverse" type="submit" ng-click="addCompanyGeo()" id="submitBtn">Submit</button>
+			            </div>
+			        </div>
+			</form>
+			
+
+</div>
+</div>
+<script type="text/javascript">
+$('.customInnerSelect').click(function(){
+	if($(this).find('select').hasClass('downArrow')){
+    	$(this).find('select').removeClass('downArrow').addClass('upArrow');
+
+    } else{
+    	$(this).find('select').removeClass('upArrow').addClass('downArrow');
+    }
+});
+</script>

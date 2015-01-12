@@ -1,0 +1,68 @@
+<div id="main">
+    
+<h1 class="page-header">Add Company Growth</h1>
+
+<ul class="tabs nav nav-tabs" id="myTab">
+    <li ng-class="selectedTab==1?'active':''" ><a href="" ng-click="setTab(1)">Add Company Growths</a></li>
+</ul>
+
+<div class="tab-content">
+	<div class="tab-pane active">
+		<div class="container">
+			<form method="POST">
+			    <div class="span5">
+			        <div class="form-group">
+			            <label>Company Id:<span class="form-required" title="This field is required.">*</span></label>
+			            <select id="compID" ng-options="item.id as item.name for item in growthModel.companies" name="ndaId" style="width:100%"  ng-model="growthModel.selected_company">
+			                <option></option>
+			                    
+			            </select>                                        
+			        </div>
+			        <div class="form-group">
+			            <label>Growth Type:<span class="form-required" title="This field is required.">*</span></label>
+			            <select id="growthID" ng-options="item.id as item.name for item in growthModel.growths" name="ndaId" style="width:100%"  ng-model="growthModel.selected_growth">
+			                <option></option>
+			                    
+			            </select>                                        
+			        </div>
+			        <div class="form-group">
+			            <label>Year:<span class="form-required" title="This field is required.">*</span></label>
+			            <select id="year" name="ndaId" style="width:100%"  ng-model="growthModel.selected_year">
+			                <option></option>
+			                <option value="2010">2010</option>
+			                <option value="2011">2011</option>
+			                <option value="2012">2012</option>
+			                <option value="2013">2013</option>
+			                <option value="2014">2014</option>
+			                <option value="2015">2015</option>
+			                <option value="2016">2016</option>
+			                <option value="2017">2017</option>
+			                <option value="2018">2018</option>
+			                <option value="2019">2019</option>
+			                    
+			            </select>                                        
+			        </div>
+
+			        <div class="form-group">
+			            <label>Value:<span class="form-required" title="This field is required.">*</span></label>
+			            <input type="text" class="form-control" name="value" id="value" ng-model="growthModel.value" />                                      
+			        </div>
+
+			        
+			        <div class="block-footer">
+			        <div class="pull-right">                                                                                    
+			                <button class="btn btn-success" type="submit" ng-click="addCompanyGrowth()" id="submitBtn">Submit</button>
+			            </div>
+			        </div>
+			    </div>
+			</form>
+			</div>
+	</div>
+</div>
+
+</div>
+<script type="text/javascript">
+$('#growthID').select2({placeholder:'Please select growth Type'});
+$('#compID').select2({placeholder:'Please select company'});
+$('#year').select2({placeholder:'Please select year'});
+</script>

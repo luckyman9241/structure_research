@@ -1,0 +1,110 @@
+<style>
+table { min-width: 200px; }
+
+tbody div{
+    overflow:scroll;
+    height:100px;
+}
+#style-2::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 1px;
+            background-color: #F5F5F5;
+        }
+
+        #style-2::-webkit-scrollbar
+        {
+            width: 12px;
+            background-color: #989898;
+        }
+
+        #style-2::-webkit-scrollbar-thumb
+        {
+            border-radius: 1px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #989898;
+        }
+
+
+table {
+    border-collapse: collapse;
+    width: 300px;
+    overflow-x: scroll;
+    display: block;
+}
+thead {
+    background-color: #EFEFEF;
+}
+thead, tbody {
+    display: block;
+}
+tbody {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: auto!important;
+}
+td, th {
+    min-width: 170px;
+    max-width: 170px;
+    height: 25px;
+     border: dashed 1px lightblue;
+     font-size: 14px;
+}
+</style>
+<!-- <div class="pull-right" style="margin-bottom:10px"><button ng-click="addCompanyGeoPage()" ng-show="dashboardModel.userTypeId==1" type="button" class="btn btn-primary btn-med">Edit Company Geo</button></div>
+<h2 class="span9" style="margin-left:0px">Geography Dashboard (USD in millions)
+        
+        <div class="btn-group span4 pull-right">
+          <button type="button" class="btn btn-primary btn-sm" ng-click="changeGeoView(1)">%</button>
+          <button type="button" class="btn btn-primary btn-sm" ng-click="changeGeoView(2)">$</button>
+        </div>
+</h2> -->
+<!-- <div class="btn-atrr">
+<div class="add-new"><a href="" ng-click="addCompanyGeoPage()" ng-show="dashboardModel.userTypeId==1"><img src="/browser_components/images/bttnAdd.png" alt="img"/></a></div>
+<div class="switch-button">
+    <a  href="" ng-click="changeGeoView(2)"><img class="btn-percent" ng-src="{{dashboardModel.gpercentActive}}" alt="#"/></a>
+    <a  href="" ng-click="changeGeoView(1)"><img class="btn-usd" ng-src="{{dashboardModel.gdollarActive}}" alt="#"/></a>
+</div>
+</div> -->
+
+        
+
+<div style=" width: 100%;overflow: auto;text-align:center" id="style-2">
+    <!-- <img ng-show="dashboardModel.loading" ng-src="/browser_components/images/ajax-loader.gif" alt="img"/> -->
+<table class="table table-striped">
+    <thead>
+        <th ng:click="changeSorting('company_name')" ng:class="selectedCls('company_name')">Company Name</th>
+        <th ng-repeat="gHead in dashboardModel.geos" ng:click="changeSorting(checkIndex2(gHead.id))" ng:class="selectedCls(checkIndex2(gHead.id))" >{{gHead.name}}</th>
+    </thead>
+    <tbody style="height:100px;"id="style-2">
+    <tr ng-repeat="geo in dashboardModel.companies_geos|orderBy:sort.column:sort.descending | pagination : (dashboardModel.currentPage)*(dashboardModel.itemsPerPage) | limitTo: dashboardModel.itemsPerPage track by $index">
+        <td>{{geo.company_name}}</td>
+        <td ng-repeat="gBody in dashboardModel.geos">
+            <span><span ng-show="dashboardModel.geoViewFlag==1 && geo[checkIndex(gBody.id)] > 0">$</span>{{((geo[checkIndex(gBody.id)])>0)?(geo[checkIndex(gBody.id)]|number:1):'-'}}<span ng-show="dashboardModel.geoViewFlag==2 && geo[checkIndex(gBody.id)] > 0">%</span></span>
+
+        </td>
+            
+        </tr>
+    </tbody>
+</table>
+
+</div>
+<div class="pagination-div">
+<ul class="pagination">
+      <li ng-class="tab3DisablePrevPage()">
+        <a href ng-click="tab3prevPage()">« Prev</a>
+      </li>
+      <!-- <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+        <a href="" ng-click="setPage(n)" >{{n+1}}</a>
+      </li> -->
+      <li ng-class="tab3DisableNextPage()">
+        <a href ng-click="tab3nextPage()">Next »</a>
+         
+      </li>
+    </ul>
+</div>
+<script type="text/javascript">
+$('table').on('scroll', function () {
+    $("table > *").width($("table").width() + $("table").scrollLeft());
+});
+</script>

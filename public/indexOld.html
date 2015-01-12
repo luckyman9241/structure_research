@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="myApp">
+
+
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="browser_components/bootstrap/dist/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="browser_components/bootstrap/dist/css/bootstrap-responsive.css" type="text/css">
+    <link rel="stylesheet" href="css/realia-blue.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.vertical-tabs.css" type="text/css">
+    <link rel="stylesheet" href="browser_components/bootstrap/dist/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="browser_components/bootstrap/dist/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="browser_components/bootstrap/dist/css/select2.css" rel="stylesheet" type="text/css" />
+    <link href="browser_components/messenger/build/css/messenger.css" rel="stylesheet" type="text/css" />
+    <link href="browser_components/messenger/build/css/messenger-theme-block.css" rel="stylesheet" type="text/css" />
+    <link href="browser_components/rangeSlider/angular.rangeSlider.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/charts.css" type="text/css">
+    <link rel="shortcut icon" href="browser_components/img/favIcon.ico">
+
+    
+    
+
+    <title>Structure Research</title>
+</head>
+<body>
+<div id="wrapper-outer" ng-controller='HomeController'>
+    <div id="wrapper">
+        <div id="wrapper-inner">
+             <div class="breadcrumb-wrapper" style="background-color:black">
+                <div class="container">
+                    <div class="row">
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div id="header-wrapper">
+                <div id="header">
+                    <div id="header-inner" style="background-color: rgb(2, 42, 59);">
+                        <div class="container">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <div class="row">
+                                        <div class="logo-wrapper span4">
+                                            <a href="#nav" class="hidden-desktop" id="btn-nav">Toggle navigation</a>
+                                            <div class="site-name">
+                                                <a href="#" title="Home" class="brand" style="text-decoration:none">Structure Research</a>
+                                            </div>
+                                        </div>
+                                        <div ng-show="homeModel.isLoggedin==1" class="pull-right hidden-phone hidden-tablet" style="margin-top:25px">
+                                            <div class="btn-group" style="left:-75%" >
+                                                <a class="btn btn-default btn-small" href="#/dashboard">Welcome {{homeModel.username}}</a>
+                                                <a class="btn btn-default dropdown-toggle btn-small" data-toggle="dropdown">
+                                                    <span class="caret"></span>
+                                                </a>
+                                                <ul class="dropdown-menu" >
+                                                    <li style="text-align:left;"><a class="" href="#/dashboard" style="padding-left:0px!important;text-align:left;margin-left:3%;"><i class="icon-dashboard"></i> Dashboard</a></li>
+                                                    <!-- <li style="text-align:left;"><a class="" href="#/addCompany" style="padding-left:0px!important;text-align:left;margin-left:3%;"><i class="icon-dashboard"></i> Add Company</a></li>
+                                                    <li style="text-align:left;"><a class="" href="#/growths" style="padding-left:0px!important;text-align:left;margin-left:3%;"><i class="icon-suitcase"></i> Add Company Growths</a></li> -->
+                                                    <li style="text-align:left;" ng-show="homeModel.userTypeId==1"><a class="" href="#/settings" style="padding-left:0px!important;text-align:left;margin-left:3%;"><i class="icon-suitcase"></i> Settings</a></li>
+                                                    <li style="text-align:left;"><a class="" href="javascript:void(0)" style="padding-left:0px!important;text-align:left;margin-left:3%;" ng-click="logout()"><i class="icon-power-off" ></i> Logout</a></li>
+                                                </ul>
+                                            </div>
+                                            <!--<a href="#/login"><button class="btn btn-warning "style="border-radius:2px;margin-top:25px" ng-hide="homeModel.isLoggedin==1">Login/Signup</button></a>-->
+                                        </div>
+                                    
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            
+
+            
+
+            <div id="navigation">
+                <div class="container" style="margin-bottom:20px">
+                    <div class="navigation-wrapper">
+                        <div class="navigation clearfix-normal">
+
+                            <ul class="nav">
+                                <li>
+                                    <span><a href="#/dashboard">Companies</a></span>
+                                </li>
+                                <li ng-show="homeModel.userTypeId==1">
+                                    <span><a href="#/settings">Settings</a></span>
+                                </li>
+                                <li>
+                                    <span class="nolink">Services</span>
+                                </li>
+                                <li>
+                                    <span class="nolink">Research Approach</span>
+                                </li>
+                                <li>
+                                    <span class="nolink">FAQ</span>
+                                </li>
+                                <li>
+                                    <span class="nolink">Subscribe</span>
+                                </li>
+                                <li>
+                                    <span class="nolink">Contact us</span>
+                                </li>
+                                
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+    <div class="container">
+        
+<div id="content" ng-show="homeModel.isLoggedin==1">
+      <div class="container" id="bookingslist">
+        <div class="row">
+          <div class="span3 responsive" data-desktop="span3" data-tablet="span6" style="width:250px!important;">
+            <div class="dashboard-stat blue">
+            <div class="visual"><i class="fa fa-archive"></i></div>
+            <div class="details"><div class="number" ><span ng-bind="homeModel.companyTotal||0">0</span></div><div class="desc">Total Companies</div>
+            </div><a class="more" ></a></div>
+            </div>
+            <div class="span3 responsive" data-desktop="span3" data-tablet="span6" style="width:250px!important;">
+              <div class="dashboard-stat purple">
+                <div class="visual"><i class="fa fa-dollar"></i></div>
+                <div class="details"><div class="number"><span ng-bind="(homeModel.revenueTotal|number:1)||0">0</span></div><div class="desc">Total Revenue</div>
+          </div><a class="more"></a></div>
+          </div>
+          <div class="span3 responsive" data-desktop="span3" data-tablet="span6" style="width:250px!important;">
+            <div class="dashboard-stat green"><div class="visual"><i class="fa fa-dollar"></i></div>
+            <div class="details"><div class="number"><span ng-bind="(homeModel.revenueTotal/homeModel.companyTotal| number:1)||0">0</span></div>
+            <div class="desc">Average Revenue</div>
+          </div><a class="more" ></a></div>
+          </div>
+          <div class="span3 responsive" data-desktop="span3" data-tablet="span6" style="width:250px!important;">
+            <div class="dashboard-stat yellow">
+              <div class="visual"><i class="fa fa-group"></i></div>
+            <div class="details"><div class="number"><span ng-bind="((homeModel.users/homeModel.companyTotal)| number:2)||0">0</span>%</div>
+            <div class="desc">Avg Rev Growth</div>
+          </div><a class="more" ></a></div>
+          </div>
+          </div>
+          </div>
+    </div>
+        
+    
+
+
+
+
+</div>
+    
+    <div id="content" class="container" ng-view></div>
+</div>
+</div>
+
+<div id="footer-wrapper">
+    <div id="footer" class="footer container">
+        <div id="footer-inner">
+            <div class="row">
+                <div class="span6">
+                    <p> &copy; <a href="#">Structure Research</a> 2014. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
+
+    <script type="text/javascript" src="browser_components/jquery/dist/jquery.js"></script>
+    <script src="browser_components/jquery-ui/ui/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="browser_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="browser_components/select2/select2.js"></script>
+    <script type="text/javascript" src="browser_components/jquery/realia.js"></script>
+    
+    <script type="text/javascript" src="browser_components/angular/angular.js"></script>
+
+    <!--<script type="text/javascript" src="browser_components/charts/angularjs-nvd3-directives.js"></script>
+    <script type="text/javascript" src="browser_components/charts/nv.d3.js"></script>
+    <script type="text/javascript" src="browser_components/charts/d3.js"></script>-->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+    <script type="text/javascript" src="browser_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="browser_components/jquery/angular-local-storage.js"></script>
+
+
+    <script type="text/javascript" src="browser_components/messenger/build/js/messenger.min.js"></script>
+    <script type="text/javascript" src="browser_components/messenger/build/js/messenger-theme-future.js"></script>
+    <script type="text/javascript" src="browser_components/rangeSlider/angular.rangeSlider.js"></script>
+    <script type="text/javascript" src="browser_components/progressBar/ui-bootstrap-0.10.0.js"></script>
+    
+
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controllers.home.js"></script>
+    <script type="text/javascript" src="js/controllers.company.js"></script>
+    <script type="text/javascript" src="js/controllers.setting.js"></script>
+    <script type="text/javascript" src="js/controllers.confidenceLevel.js"></script>
+    <script type="text/javascript" src="js/controllers.login.js"></script>
+    <script type="text/javascript" src="js/controllers.dashboard.js"></script>
+    <script type="text/javascript" src="js/controllers.growth.js"></script>
+
+
+    
+    
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    InitTabs();
+    Messenger.options = {
+        extraClasses: 'messenger-fixed messenger-on-top',
+        theme: 'block'
+    }
+});
+
+</script>
+</html>
+
+

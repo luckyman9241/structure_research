@@ -1,0 +1,60 @@
+<h2><strong>Company Revenue</strong> Add</h2>
+<div class="row-fluid">
+			<form method="POST">
+				<div class="span12">
+			    <div class="span4">
+			        <div class="form-group">
+			            <label>Company:<span class="form-required" title="This field is required.">*</span></label>
+			            <select id="compIDR" ng-options="item.id as item.name for item in dashboardModel.Allcompanies" name="growthCompanies" style="width:100%"  ng-model="dashboardModel.selected_company" ng-change="fetchCompanyYearRevenue()">
+			                <option></option>
+			                    
+			            </select>                                        
+			        </div>
+			       
+			    </div>
+			    <div class="span4">
+			        <div class="form-group">
+			            <label>Year:<span class="form-required" title="This field is required.">*</span></label>
+				        <select id="yearR" ng-model="dashboardModel.selected_year" ng-change="fetchCompanyYearRevenue()">
+				            <option></option>
+				                <option value="2010">2010</option>
+				                <option value="2011">2011</option>
+				                <option value="2012">2012</option>
+				                <option value="2013">2013</option>
+				                <option value="2014" >2014</option>
+				                <option value="2015">2015</option>
+				                <option value="2016">2016</option>
+				                <option value="2017">2017</option>
+				                <option value="2018">2018</option>
+				                <option value="2019">2019</option>
+				        </select>
+			        </div>
+
+			        
+			    </div>
+			    <div class="span8" style="margin-left:0px">
+			    	<table class="table table-striped">
+			            <th>Revenue Type</th>
+			            <th>Value</th>
+			            <tr ng-repeat="growth in dashboardModel.growths track by $index">
+			            <td>{{growth.name}}</td>
+			            <td><input type="hidden" name="growthIds[]" value="{{growth.id}}"/>
+			            <input type="text" class="form-control" name="growthValue[]" id="growthValue_{{$index}}"  placeholder="Value"/>
+			        </td>
+			        </table>
+			    </div>
+			    </div>
+			    <div class="block-footer">
+			        <div class="pull-right">                                                                                    
+			                <button class="btn btn-success" type="submit" ng-click="addCompanyGrowth()" id="submitBtn">Submit</button>
+			            </div>
+			        </div>
+			</form>
+			
+
+</div>
+<script type="text/javascript">
+$('#growthID').select2({placeholder:'Please select growth Type'});
+$('#compIDR').select2({placeholder:'Please select company'});
+$('#yearR').select2({placeholder:'Please select year'});
+</script>

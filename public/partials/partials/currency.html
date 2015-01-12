@@ -1,0 +1,71 @@
+<h2><strong>Currency</strong> Add</h2>
+<div class="row-fluid">
+	<form method="POST">
+		
+		<div class="form-group span6">
+		    <label>Name:<span class="form-required" title="This field is required.">*</span></label>                                        
+		    <input type="text" class="form-control" name="range" id="range" ng-enter ng-model="settingModel.currencyName" />
+		</div>
+
+		<div class="form-group span6">
+		    <label>FX Rate:<span class="form-required" title="This field is required.">*</span></label>                                        
+		    <input type="text" class="form-control" name="range" id="range" ng-enter ng-model="settingModel.fxrate" />
+		</div>
+		
+		<div class="form-group span6" style="margin-left:0px">
+		    <label>Currency:<span class="form-required" title="This field is required.">*</span></label>                                        
+		    <input type="text" class="form-control" name="range" id="range" ng-enter ng-model="settingModel.currency" />
+		</div>
+		<div class="form-group span6">
+		    <label>Prefix:<span class="form-required" title="This field is required.">*</span></label>                                        
+		    <input type="text" class="form-control" name="range" id="range" ng-enter ng-model="settingModel.currencyPrefix" />
+		</div>
+		
+		
+		<div class="block-footer">
+		    <div class="span12">                                                                                    
+		        <button class="btn btn-inverse pull-right" type="submit" id="submitBtn" ng-click="addCurrency()">Submit</button>
+		    </div>
+		</div>
+	</form>
+
+</div>
+<div class="row-fluid">
+	<h2><strong>All Currencies</strong></h2>
+	
+
+
+    <table class="table table-striped">
+	    <th>Name</th>
+	    <th>FX Rate</th>
+	    <th>Currency Symbol</th>
+	    <th>Prefix</th>
+	    <th></th>
+	    <tr ng-repeat="cur in settingModel.currencies track by $index">
+        <td>
+        	<span ng-hide="cur.clicked" >{{cur.name}}</span>
+        	<div  ng-show="cur.clicked"><input type="text" class="form-control span6" ng-model="cur.name" /></div>
+        </td>
+        <td>
+        	<span ng-hide="cur.clicked" >{{cur.FX_rate}}</span>
+        	<div  ng-show="cur.clicked"><input type="text" class="form-control span6" ng-model="cur.FX_rate" /></div>
+        </td>
+        <td>
+        	<span ng-hide="cur.clicked" >{{cur.currency}}</span>
+        	<div  ng-show="cur.clicked"><input type="text" class="form-control span6" ng-model="cur.currency" /></div>
+        </td>
+        <td>
+        	<span ng-hide="cur.clicked" >{{cur.currency_prefix}}</span>
+        	<div  ng-show="cur.clicked"><input type="text" class="form-control span6" ng-model="cur.currency_prefix" /></div>
+        </td>
+        <td>
+        	<!-- <button ng-class="cur.clicked?'btn-success':'btn-primary'" type="button" class="btn btn-primary btn-xs" ng-click="editCurrency(cur.name,cur.id, $index)">{{cur.clicked?'Update':'Edit'}}</button>
+        	&nbsp;&nbsp;
+        	<button type="button" class="btn btn-danger btn-xs" ng-click="deleteCurrency(cur.id, $index)">Delete</button> -->
+        	<a href="" ng-click="editCurrency(cur.name,cur.id, $index)"><img src="/browser_components/images/buttnEdit.png" alt="img"/></a>&nbsp;&nbsp;
+			<a href="" ng-click="deleteCurrency(cur.id, $index)"><img src="/browser_components/images/buttnDelete.png" alt="img"/></a>
+        </td>
+    </table>
+</div>
+
+

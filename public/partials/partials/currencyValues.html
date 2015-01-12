@@ -1,0 +1,64 @@
+<h2><strong>Currency Yearly Record</strong> Add</h2>
+<div class="row-fluid">
+	<form method="POST">	
+		<div class="span5">
+			<div class="form-group ">
+	            <label>Currency ID:<span class="form-required" title="This field is required.">*</span></label> <br />
+	            <select id="currencyID" ng-options="item.id as item.name for item in settingModel.currencies" name="currencyID"   ng-model="settingModel.selected_currency_ID" >
+	                 <option></option>
+	            </select>                                        
+	        </div>
+
+			<div class="form-group ">
+			    <label>% Range:<span class="form-required" title="This field is required.">*</span></label>                                        
+			    <input type="text" class="form-control" name="range" id="range" ng-enter ng-model="settingModel.currency_percent" />
+			</div>
+
+			<div class="form-group ">
+			    <label>Value:<span class="form-required" title="This field is required.">*</span></label>                                        
+			    <input type="text" class="form-control" name="val" id="val" ng-enter ng-model="settingModel.currency_percent_value" /> 
+			</div>
+
+			<div class="block-footer">
+			    <div class="span12">                                                                                    
+			        <button class="btn btn-inverse pull-right" type="submit" id="submitBtn" ng-click="addCurrencyYearValue()">Submit</button>
+			    </div>
+			</div>
+		</div>
+	</form>
+
+</div>
+<div class="row-fluid">
+	<h2><strong>Currency Average Values</strong></h2>
+	<table class="table table-striped">
+	    <th>Currency</th>
+	    <th>Range</th>
+	    <th>Value</th>
+	    <th></th>
+	    <tr ng-repeat="cyv in settingModel.currency_year_values track by $index">
+        <td>
+        	{{cyv.legend.name}}
+        	
+        </td>
+        <td>
+        	<span ng-hide="cyv.clicked" >{{cyv.range}}</span>
+        	<div  ng-show="cyv.clicked"><input type="text" class="form-control span6" ng-model="cyv.range" /></div>
+        </td>
+        <td>
+        	<span ng-hide="cyv.clicked" >{{cyv.value}}</span>
+        	<div  ng-show="cyv.clicked"><input type="text" class="form-control span6" ng-model="cyv.value" /></div>
+        </td>
+        <td>
+        	<!-- <button ng-class="cyv.clicked?'btn-success':'btn-primary'" type="button" class="btn btn-primary btn-xs" ng-click="editCyv(cyv.name,cyv.id, $index)">{{cyv.clicked?'Update':'Edit'}}</button>
+        	&nbsp;&nbsp;
+        	<button type="button" class="btn btn-danger btn-xs" ng-click="deleteCyv(cyv.id, $index)">Delete</button> -->
+        	<a href="" ng-click="editCyv(cyv.name,cyv.id, $index)"><img src="/browser_components/images/buttnEdit.png" alt="img"/></a>&nbsp;&nbsp;
+			<a href="" ng-click="deleteCyv(cyv.id, $index)"><img src="/browser_components/images/buttnDelete.png" alt="img"/></a>
+        </td>
+    </table>
+</div>
+
+<script type="text/javascript">
+$('#currencyID').select2({placeholder:'Please select currency ID'});
+</script>
+
